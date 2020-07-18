@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import '../model/onBoarding_model.dart';
+import '../Provider/onBoarding_model.dart';
 
 class OnBoardingProvider with ChangeNotifier {
   List<OnBoardingModel> _slides = [

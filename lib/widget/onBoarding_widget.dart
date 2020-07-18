@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../Provider/onBoarding_model.dart';
 
 class OnBoardingWidget extends StatelessWidget {
-  final String imageData;
-  final String title;
-  final String description;
-
-  const OnBoardingWidget({
-    this.imageData,
-    this.title,
-    this.description,
-  });
-
   @override
   Widget build(BuildContext context) {
+    final view = Provider.of<OnBoardingModel>(
+      context,
+      listen: false,
+    );
     return Container(
+      color: Colors.white,
       padding: const EdgeInsets.all(6),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Image.asset(imageData),
           SizedBox(
-            height: 60,
+            height: 90,
           ),
-          Text(title),
+          Image.asset(view.image),
           SizedBox(
-            height: 60,
+            height: 20,
           ),
-          Text(description)
+          Text(view.title),
+          SizedBox(
+            height: 20,
+          ),
+          Text(view.description)
         ],
       ),
     );

@@ -1,34 +1,26 @@
 import 'package:flutter/material.dart';
-import './screens/home.dart';
+import 'package:provider/provider.dart';
+import 'screens/onBoarding_screen.dart';
 import './themeData.dart';
-import './screens/onBoarding_screen.dart';
+import 'Provider/onBoarding_provider.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    OnBoardingScreen();
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'RUPE',
-      initialRoute: 'home',
-      theme: ThemeDataCustom.themeDataLight,
-      routes: {
-        'home': (context) => Home(),
-      },
+    return ChangeNotifierProvider.value(
+      value: OnBoardingProvider(),
+      child: MaterialApp(
+        title: 'RUPE',
+        initialRoute: 'onBoardingScree3n',
+        theme: ThemeDataCustom.themeDataLight,
+        routes: {
+          'onBoardingScree3n': (context) => OnBoardingScreen(),
+        },
+      ),
     );
   }
 }

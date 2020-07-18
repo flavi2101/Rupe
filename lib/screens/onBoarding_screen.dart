@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rupe/themeData.dart';
 import '../widget/onBoarding_widget.dart';
 import '../Provider/onBoarding_provider.dart';
 
@@ -64,9 +65,11 @@ class _HomeState extends State<OnBoardingScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    _controller.nextPage(
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeInToLinear);
+                    _currentValue != (viewList.length - 1)
+                        ? _controller.nextPage(
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeInToLinear)
+                        : null;
                   },
                   child: AnimatedContainer(
                     alignment: Alignment.center,
@@ -74,26 +77,23 @@ class _HomeState extends State<OnBoardingScreen> {
                     width: _currentValue != (viewList.length - 1) ? 60 : 200,
                     duration: Duration(milliseconds: 400),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: ThemeDataCustom.mySecundaryColor,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: _currentValue != (viewList.length - 1)
                         ? Icon(
                             Icons.navigate_next,
                             size: 60,
-                            color: Colors.white,
+                            color: ThemeDataCustom.white,
                           )
                         : Container(
-                            width: 60,
-                            decoration: BoxDecoration(
-                              color: Colors.blue,
-                            ),
-                            child: const Text(
+                            child: Text(
                               'Acessar',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                              ),
+                              style:
+                                  Theme.of(context).textTheme.button.copyWith(
+                                        color: Colors.black,
+                                        fontSize: 18,
+                                      ),
                             ),
                           ),
                   ),
@@ -125,8 +125,8 @@ class Dots extends StatelessWidget {
       width: (currentValue == index) ? 25 : 10,
       decoration: BoxDecoration(
         color: (currentValue == index)
-            ? Colors.black
-            : Colors.black.withOpacity(0.5),
+            ? Theme.of(context).accentColor
+            : Theme.of(context).primaryColor,
         borderRadius: BorderRadius.circular(12),
       ),
     );

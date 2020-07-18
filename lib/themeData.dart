@@ -39,12 +39,62 @@ class ThemeDataCustom {
   static final _themeDataLight = ThemeData(
     primaryColor: primary,
     accentColor: secundary,
+    fontFamily: 'OpenSans',
     appBarTheme: AppBarTheme(
       color: primary,
       elevation: 0,
       iconTheme: IconThemeData(
         color: Colors.amber,
       ),
+    ),
+    textTheme: TextTheme(
+      headline5: TextStyle(
+        color: ThemeDataCustom.black,
+        fontSize: 24,
+        letterSpacing: 0.0,
+        fontFamily: 'OpenSans',
+        fontWeight: FontWeight.normal,
+      ),
+      headline6: TextStyle(
+        color: ThemeDataCustom.black,
+        fontSize: 20,
+        letterSpacing: 0.5,
+        fontFamily: 'OpenSans',
+        fontWeight: FontWeight.w500,
+      ),
+      subtitle1: TextStyle(
+          color: ThemeDataCustom.black,
+          fontSize: 16,
+          letterSpacing: 0.15,
+          fontFamily: 'OpenSans',
+          fontWeight: FontWeight.normal),
+      subtitle2: TextStyle(
+          color: ThemeDataCustom.black,
+          fontSize: 14,
+          letterSpacing: 0.1,
+          fontFamily: 'OpenSans',
+          fontWeight: FontWeight.normal),
+      bodyText1: TextStyle(
+          color: ThemeDataCustom.black,
+          fontSize: 16,
+          letterSpacing: 0.5,
+          fontFamily: 'OpenSans',
+          fontWeight: FontWeight.normal),
+      bodyText2: TextStyle(
+          color: ThemeDataCustom.black,
+          fontSize: 14,
+          letterSpacing: 0.25,
+          fontFamily: 'OpenSans',
+          fontWeight: FontWeight.normal),
+      button: TextStyle(
+          color: ThemeDataCustom.white,
+          fontSize: 14,
+          letterSpacing: 1.25,
+          fontFamily: 'OpenSans',
+          fontWeight: FontWeight.w500),
+    ),
+    buttonTheme: ButtonThemeData(
+      buttonColor: mySecundaryColor[300],
     ),
   );
 

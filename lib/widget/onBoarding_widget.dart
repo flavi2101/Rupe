@@ -22,11 +22,20 @@ class OnBoardingWidget extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Text(view.title),
+          Text(
+            view.title,
+            style: Theme.of(context)
+                .textTheme
+                .subtitle1
+                .copyWith(fontWeight: FontWeight.w700),
+          ),
           SizedBox(
             height: 20,
           ),
-          Text(view.description)
+          Text(
+            view.description,
+            style: Theme.of(context).textTheme.bodyText1,
+          )
         ],
       ),
     );

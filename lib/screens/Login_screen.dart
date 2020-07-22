@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
+import 'package:rupe/widget/Login/LoginClipper.dart';
+import 'package:rupe/widget/Login/LoginShadownPaint.dart';
+import 'package:rupe/widget/Login/SingUpClipper.dart';
+import 'package:rupe/widget/Login/SingUpShadownPaint.dart';
 import 'package:rupe/themeData.dart';
+import '../widget/Login/LoginAbas_screen.dart';
 
 class Login extends StatefulWidget {
   static final route = '/Login';
@@ -22,7 +27,7 @@ class _LoginState extends State<Login> {
           height: dimesionDevice.height,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: ThemeDataCustom.mySecundaryColor[300],
+            color: ThemeDataCustom.mySecundaryColor[400],
           ),
           child: Stack(
             alignment: Alignment.center,
@@ -30,11 +35,12 @@ class _LoginState extends State<Login> {
               Container(
                 color: Colors.white,
                 width: 300,
-                height: dimesionDevice.height * 0.8,
+                height: dimesionDevice.height * 0.85,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    // inserir fonte local para usar text como const
                     Text(
                       'Welcome back',
                       style: GoogleFonts.roboto(
@@ -46,6 +52,7 @@ class _LoginState extends State<Login> {
                     SizedBox(
                       height: dimesionDevice.height * 0.01,
                     ),
+                    // inserir fonte local para usar text como const
                     Text(
                       'Have a widget break \n lines or not',
                       textAlign: TextAlign.center,
@@ -59,29 +66,25 @@ class _LoginState extends State<Login> {
                       height: dimesionDevice.height * 0.02,
                     ),
                     Container(
-                      height: dimesionDevice.height * 0.65,
-                      width: double.infinity,
-                      color: Colors.orangeAccent,
+                      height: dimesionDevice.height * 0.7,
                       child: Stack(
                         children: <Widget>[
-                          Positioned(
-                            top: 20,
-                            right: 10,
-                            left: 10,
-                            bottom: 10,
-                            child: CustomPaint(
-                              child: ClipPath(
-                                clipper: LoginClipper(),
-                                child: Container(
-                                  height: (dimesionDevice.height * 0.65),
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                  ),
-                                ),
+                          Column(
+                            children: <Widget>[
+                              LoginAbas(
+                                color: Colors.red,
+                                dimesionDevice: dimesionDevice,
+                                clipper: SingUpClipper(),
+                                painter: SingUpShadownPaint(),
                               ),
-                            ),
-                          )
+                            ],
+                          ),
+                          LoginAbas(
+                            color: Colors.purple,
+                            dimesionDevice: dimesionDevice,
+                            clipper: LoginClipper(),
+                            painter: LoginShadownPaint(),
+                          ),
                         ],
                       ),
                     )
@@ -89,9 +92,9 @@ class _LoginState extends State<Login> {
                 ),
               ),
               Positioned(
-                right: dimesionDevice.height * 0.18,
-                top: dimesionDevice.height * 0.06,
-                child: Icon(
+                right: dimesionDevice.height * 0.08,
+                top: dimesionDevice.height * 0.04,
+                child: const Icon(
                   FontAwesomeIcons.cog,
                   color: Colors.blue,
                   size: 16,
@@ -99,8 +102,8 @@ class _LoginState extends State<Login> {
               ),
               Positioned(
                 right: dimesionDevice.height * 0.12,
-                top: dimesionDevice.height * 0.18,
-                child: Icon(
+                top: dimesionDevice.height * 0.12,
+                child: const Icon(
                   FontAwesomeIcons.cog,
                   color: Colors.blue,
                   size: 12,
@@ -108,8 +111,8 @@ class _LoginState extends State<Login> {
               ),
               Positioned(
                 left: dimesionDevice.height * 0.12,
-                top: dimesionDevice.height * 0.19,
-                child: Icon(
+                top: dimesionDevice.height * 0.13,
+                child: const Icon(
                   LineAwesomeIcons.close,
                   color: Colors.blue,
                   size: 25,
@@ -120,40 +123,5 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
-  }
-}
-
-class LoginClipper extends CustomClipper<Path> {
-  Path path = Path();
-  double radius = 40;
-
-  @override
-  Path getClip(Size size) {
-    var x = size.width;
-    var y = size.height;
-
-    path.moveTo(0, 2 * radius);
-    path.lineTo(0, y - radius);
-    path.quadraticBezierTo(0, y, radius, y);
-    path.lineTo(x - radius, y);
-    path.quadraticBezierTo(x, y, x, y - radius);
-    path.lineTo(x, radius);
-    path.quadraticBezierTo(x, 0, x - (1.5 * radius), 0.25 * radius);
-    path.lineTo(1.5 * radius, 1.3 * radius);
-    path.quadraticBezierTo(0, 2 * radius, 0, 4 * radius);
-
-    //     clockwise: false, radius: Radius.circular(radius));
-    // path.lineTo(x, y - 180);
-    // path.arcToPoint(Offset(x - radius, y - 180 - radius),
-    //     clockwise: false, radius: Radius.circular(radius));
-
-    path.close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
   }
 }

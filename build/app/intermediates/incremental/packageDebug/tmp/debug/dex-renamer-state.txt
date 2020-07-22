@@ -1,4 +1,4 @@
-#Wed Jul 22 08:15:10 BRT 2020
+#Wed Jul 22 12:58:16 BRT 2020
 base.0=C\:\\Users\\flavi\\Documents\\Projects\\Flutter\\rupe\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

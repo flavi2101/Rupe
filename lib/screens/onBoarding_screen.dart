@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rupe/screens/Login_screen.dart';
 import 'package:rupe/themeData.dart';
-import '../widget/onBoarding_widget.dart';
+import '../widget/OnBoarding/onBoarding_widget.dart';
 import '../Provider/onBoarding_provider.dart';
 
 class OnBoardingScreen extends StatefulWidget {

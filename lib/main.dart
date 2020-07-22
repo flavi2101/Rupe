@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'screens/onBoarding_screen.dart';
 import './themeData.dart';
 import 'Provider/onBoarding_provider.dart';
+import 'screens/Login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeDataCustom.themeDataLight,
         routes: {
           'onBoardingScree3n': (context) => OnBoardingScreen(),
+          Login.route: (context) => Login(),
         },
       ),
     );

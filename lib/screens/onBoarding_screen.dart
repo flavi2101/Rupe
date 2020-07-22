@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rupe/screens/Login_screen.dart';
 import 'package:rupe/themeData.dart';
 import '../widget/onBoarding_widget.dart';
 import '../Provider/onBoarding_provider.dart';
@@ -69,7 +70,8 @@ class _HomeState extends State<OnBoardingScreen> {
                         ? _controller.nextPage(
                             duration: Duration(milliseconds: 300),
                             curve: Curves.easeInToLinear)
-                        : null;
+                        : Navigator.of(context)
+                            .pushReplacementNamed(Login.route);
                   },
                   child: AnimatedContainer(
                     alignment: Alignment.center,
